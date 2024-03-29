@@ -5,4 +5,36 @@ author: Min Ni Hong
 date: "2024-03-29"
 ---
 
+```{r}
+knitr::opts_chunk$set(fig.align="center")
+
+library(tidyverse)
+library(ggplot2)
+```
+# Learning to reference figures
+
+```{r Figref}
+x <- rnorm(100)
+y <- 1:100
+data <- data.frame(x = x, y = y)
+
+ggplot(data, aes(x = y, y = x)) +
+  geom_line() +
+  labs(x = "Sequence", y = "Values", title = "Line Plot of x vs y")
+
+#| fig-cap: "This is random noise"
+```
+@fig-randomnoise shows a line plot of x vs y generated from a normal distribution.
+
+# Learning to reference tables
+
+```{r}
+#| label: tbl-example
+#| tbl-cap: "First 5 rows of the example data."
+
+kableExtra::kable(data[1:5,])
+```
+@tbl-example shows the first few rows of the example table.
+
+
 
